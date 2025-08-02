@@ -22,7 +22,7 @@ const aiCharacterName = document.getElementById('ai-character-name');
 // New elements for functionality
 const newChatButton = document.getElementById('new-chat-button');
 const chatHistorySections = document.getElementById('chat-history-sections'); // Get the container for history
-const actionButtons = document.querySelectorAll('.action-button');
+// Removed: const actionButtons = document.querySelectorAll('.action-button');
 const bulbHubLogo = document.querySelector('.company-name');
 const searchIcon = document.querySelector('.search-icon');
 
@@ -66,7 +66,7 @@ if (savedAiName) {
 }
 // Set a default character if none saved
 if (!savedAiName) {
-    aiCharacterName.textContent = "Jojohn"; // Default name if no AI character is set
+    aiCharacterName.textContent = "Alex"; // Default name if no AI character is set
 }
 
 
@@ -147,7 +147,8 @@ saveAiButton.addEventListener('click', (event) => {
 // New Chat Button Functionality
 newChatButton.addEventListener('click', startNewChatSession);
 
-// Action Buttons (still populate input)
+// Removed action button event listener section
+/*
 actionButtons.forEach(button => {
     button.addEventListener('click', () => {
         const promptText = button.textContent.trim();
@@ -155,6 +156,7 @@ actionButtons.forEach(button => {
         userInput.focus(); // Bring focus to the input
     });
 });
+*/
 
 // BulbHub Logo (Company Name)
 bulbHubLogo.addEventListener('click', () => {
