@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jojohn Chat Bot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="network-background" id="network-background"></div>
+    <header class="site-header">
+        <a href="#" class="logo"><i class="fas fa-robot"></i> Jojohn Chat Bot</a>
+        <nav>
+            <a href="#" class="nav-link" data-section="homepage">Home</a>
+            <a href="#" class="nav-link" data-section="chat-container">Chat</a>
+            <a href="#" class="nav-link" data-section="create-ai-section">Create AI</a>
+            <a href="#" class="nav-link" data-section="contact-section">Contact</a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="section-container active" id="homepage">
+            <h1><i class="fas fa-home"></i> Welcome</h1>
+            <p>A simple and modern chatbot powered by Cohere's Command-R model.</p>
+            <button id="start-chat-button" class="btn"><i class="fas fa-comment-dots"></i> Start Chatting</button>
+        </div>
+
+        <div class="section-container" id="chat-container">
+            <div class="chat-layout">
+                <div class="chat-sidebar">
+                    <div class="sidebar-header">
+                        <div class="profile-circle"></div>
+                        <span class="company-name">Syntax Repo</span>
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <button id="new-chat-button" class="sidebar-btn"><i class="fas fa-plus"></i> New Chat</button>
+                    <div class="chat-history-sections" id="chat-history-sections">
+                        </div>
+                </div>
+
+                <div class="chat-main">
+                    <div class="chat-header-design">
+                        <div class="ai-profile-circle"></div>
+                        <h1 class="welcome-message">Hello! I'm <span id="ai-character-name">Jojohn</span></h1>
+                        <p class="sub-message">Ask me anything, and I'll help you out!</p>
+                        <div class="api-key-container-design">
+                            <div class="password-input-wrapper">
+                                <input type="password" id="api-key" placeholder="Enter Cohere API key (starts with cohere_)" autocomplete="off">
+                                <i class="fas fa-eye-slash toggle-password" id="toggle-api-key-visibility"></i>
+                            </div>
+                            <button id="save-key">Save Key</button>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message bot-message">
+                            <p>Hello! I'm your AI assistant. How can I help you today?</p>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons-container">
+                        <button class="action-button"><i class="fas fa-robot"></i> Open AI</button>
+                        <button class="action-button"><i class="fas fa-truck"></i> Search for suppliers</button>
+                        <button class="action-button"><i class="fas fa-hammer"></i> Select materials</button>
+                        <button class="action-button"><i class="fas fa-calculator"></i> Calculation of the cost</button>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <div class="typing-indicator" id="typing-indicator">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        <div class="chat-input-wrapper">
+                            <textarea id="user-input" placeholder="Type your message here..." rows="1"></textarea>
+                            <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container" id="create-ai-section">
+            <div class="create-ai-wrapper">
+                <header class="create-ai-header">
+                    <h1><i class="fas fa-magic"></i> Create Your AI</h1>
+                    <p>Define your own AI character by giving it a name and a personality prompt.</p>
+                </header>
+                <div class="create-ai-content-wrapper">
+                    <form class="create-ai-form">
+                        <div class="form-group">
+                            <label for="ai-name">Character Name:</label>
+                            <input type="text" id="ai-name" name="ai-name" placeholder="e.g., Alex" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ai-prompt">Personality Prompt:</label>
+                            <textarea id="ai-prompt" name="ai-prompt" rows="5" placeholder="e.g., You are a friendly and helpful chatbot named Alex. Your goal is to answer questions concisely and professionally." required></textarea>
+                        </div>
+                        <button type="submit" id="save-ai-button" class="btn"><i class="fas fa-save"></i> Save Character</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container" id="contact-section">
+            <div class="contact-header">
+                <h1><i class="fas fa-envelope"></i> Contact Us</h1>
+                <p>We'd love to hear from you. Fill out the form below to get in touch!</p>
+            </div>
+            <div class="contact-content-wrapper">
+                <div class="contact-info">
+                    <h3>Our Contact Details</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Galaxy Lane, Andromeda, 56789</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope"></i> contact@jojohn.com</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
