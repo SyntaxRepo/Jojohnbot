@@ -66,7 +66,7 @@ if (savedAiName) {
 }
 // Set a default character if none saved
 if (!savedAiName) {
-    aiCharacterName.textContent = "Alex"; // Default name if no AI character is set
+    aiCharacterName.textContent = "Jojohn"; // Default name if no AI character is set
 }
 
 
