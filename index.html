@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.45, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
     <title>Jojohn Chat Bot</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,11 +11,13 @@
     <div class="network-background" id="network-background"></div>
     <header class="site-header">
         <a href="#" class="logo"><i class="fas fa-robot"></i> Jojohn Chat Bot</a>
-        <nav>
-            <a href="#" class="nav-link" data-section="homepage">Home</a>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i> </div>
+        <nav class="main-nav" id="nav-dropdown-menu"> <a href="#" class="nav-link" data-section="homepage">Home</a>
             <a href="#" class="nav-link" data-section="chat-container">Chat</a>
             <a href="#" class="nav-link" data-section="create-ai-section">Create AI</a>
-            <a href="#" class="nav-link" data-section="free-api-section">Free API</a> <a href="#" class="nav-link" data-section="contact-section">Contact</a>
+            <a href="#" class="nav-link" data-section="free-api-section">Free API</a>
+            <a href="#" class="nav-link" data-section="contact-section">Contact</a>
         </nav>
     </header>
 
@@ -126,6 +128,7 @@
                 </div>
             </div>
         </div>
+
         <div class="section-container" id="contact-section">
             <div class="contact-header">
                 <h1><i class="fas fa-envelope"></i> Contact Us</h1>
