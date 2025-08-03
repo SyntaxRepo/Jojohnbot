@@ -8,7 +8,7 @@ const saveKeyButton = document.getElementById('save-key');
 const homepage = document.getElementById('homepage');
 const chatContainer = document.getElementById('chat-container');
 const createAiSection = document.getElementById('create-ai-section');
-const freeApiSection = document.getElementById('free-api-section'); // NEW: Free API Section
+const freeApiSection = document.getElementById('free-api-section'); // Added this back if it was removed unintentionally
 const contactSection = document.getElementById('contact-section');
 const startChatButton = document.getElementById('start-chat-button');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -23,11 +23,17 @@ const aiCharacterName = document.getElementById('ai-character-name');
 // New elements for functionality
 const newChatButton = document.getElementById('new-chat-button');
 const chatHistorySections = document.getElementById('chat-history-sections'); // Get the container for history
+// Removed: const actionButtons = document.querySelectorAll('.action-button'); // This element doesn't exist in index.html
 const bulbHubLogo = document.querySelector('.company-name');
 const searchIcon = document.querySelector('.search-icon');
 
 // New DOM Elements for password toggle
 const toggleApiKeyVisibility = document.getElementById('toggle-api-key-visibility');
+
+// NEW: Header dropdown elements
+const menuToggle = document.getElementById('menu-toggle');
+const navDropdownMenu = document.getElementById('nav-dropdown-menu');
+
 
 // Global variables for managing chat sessions
 let chatSessions = []; // Array to store all chat sessions
@@ -66,11 +72,19 @@ if (savedAiName) {
 }
 // Set a default character if none saved
 if (!savedAiName) {
-    aiCharacterName.textContent = "Jojohn"; // Default name if no AI character is set
+    aiCharacterName.textContent = "Alex"; // Default name if no AI character is set
 }
 
 
 // Event Listeners
+
+// NEW: Toggle mobile menu
+if (menuToggle) { // Check if menuToggle exists (it won't on larger screens with display:none)
+    menuToggle.addEventListener('click', () => {
+        navDropdownMenu.classList.toggle('show-menu');
+    });
+}
+
 
 // Save API Key
 saveKeyButton.addEventListener('click', () => {
@@ -90,7 +104,7 @@ if (toggleApiKeyVisibility) {
         apiKeyInput.setAttribute('type', type);
         // Toggle the icon
         toggleApiKeyVisibility.classList.toggle('fa-eye');
-        ToggleApiKeyVisibility.classList.toggle('fa-eye-slash');
+        toggleApiKeyVisibility.classList.toggle('fa-eye-slash');
     });
 }
 
@@ -115,6 +129,10 @@ userInput.addEventListener('input', () => {
 // Start Chatting Button
 startChatButton.addEventListener('click', () => {
     showSection('chat-container');
+    // NEW: Close dropdown menu if open after navigating
+    if (navDropdownMenu.classList.contains('show-menu')) {
+        navDropdownMenu.classList.remove('show-menu');
+    }
 });
 
 // Navigation Links
@@ -123,6 +141,10 @@ navLinks.forEach(link => {
         event.preventDefault();
         const sectionId = event.target.dataset.section;
         showSection(sectionId);
+        // NEW: Close dropdown menu after navigating
+        if (navDropdownMenu.classList.contains('show-menu')) {
+            navDropdownMenu.classList.remove('show-menu');
+        }
     });
 });
 
