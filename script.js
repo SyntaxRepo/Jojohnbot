@@ -8,6 +8,7 @@ const saveKeyButton = document.getElementById('save-key');
 const homepage = document.getElementById('homepage');
 const chatContainer = document.getElementById('chat-container');
 const createAiSection = document.getElementById('create-ai-section');
+const freeApiSection = document.getElementById('free-api-section'); // NEW: Free API Section
 const contactSection = document.getElementById('contact-section');
 const startChatButton = document.getElementById('start-chat-button');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -22,7 +23,6 @@ const aiCharacterName = document.getElementById('ai-character-name');
 // New elements for functionality
 const newChatButton = document.getElementById('new-chat-button');
 const chatHistorySections = document.getElementById('chat-history-sections'); // Get the container for history
-// Removed: const actionButtons = document.querySelectorAll('.action-button');
 const bulbHubLogo = document.querySelector('.company-name');
 const searchIcon = document.querySelector('.search-icon');
 
@@ -66,7 +66,7 @@ if (savedAiName) {
 }
 // Set a default character if none saved
 if (!savedAiName) {
-    aiCharacterName.textContent = "Alex"; // Default name if no AI character is set
+    aiCharacterName.textContent = "Jojohn"; // Default name if no AI character is set
 }
 
 
@@ -90,7 +90,7 @@ if (toggleApiKeyVisibility) {
         apiKeyInput.setAttribute('type', type);
         // Toggle the icon
         toggleApiKeyVisibility.classList.toggle('fa-eye');
-        toggleApiKeyVisibility.classList.toggle('fa-eye-slash');
+        ToggleApiKeyVisibility.classList.toggle('fa-eye-slash');
     });
 }
 
@@ -146,17 +146,6 @@ saveAiButton.addEventListener('click', (event) => {
 
 // New Chat Button Functionality
 newChatButton.addEventListener('click', startNewChatSession);
-
-// Removed action button event listener section
-/*
-actionButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const promptText = button.textContent.trim();
-        userInput.value = promptText; // Populate the input field
-        userInput.focus(); // Bring focus to the input
-    });
-});
-*/
 
 // BulbHub Logo (Company Name)
 bulbHubLogo.addEventListener('click', () => {
