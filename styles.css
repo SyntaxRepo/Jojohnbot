@@ -1,3 +1,17 @@
+/*
+ * This stylesheet has been updated with a new color scheme and animations
+ * to create a more attractive and user-friendly experience, as requested.
+ *
+ * New color palette:
+ * - A deep, dark background.
+ * * - A vibrant secondary color for accents and highlights.
+ * - Soft, contrasting text colors for readability.
+ *
+ * Animations and transitions:
+ * - Smooth transitions for button hovers.
+ * - Subtle box-shadows for a sense of depth.
+ * - Animated focus states for input fields.
+ */
 
 :root {
     --primary-color: #0d1a3b; /* Deep, dark blue for primary elements */
@@ -62,7 +76,22 @@ body {
     letter-spacing: 1px;
 }
 
-.site-header nav a {
+/* Hamburger menu icon */
+.menu-toggle {
+    display: none; /* Hidden by default on desktop */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--design-text-light);
+    z-index: 1001; /* Ensure it's above other content */
+}
+
+/* Navigation menu - main-nav is now the container for links */
+.main-nav {
+    display: flex; /* Default to flex for desktop layout */
+    align-items: center;
+}
+
+.main-nav .nav-link {
     color: white;
     text-decoration: none;
     margin-left: 30px;
@@ -72,9 +101,58 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.site-header nav a:hover {
+.main-nav .nav-link:hover {
     background-color: var(--design-surface-dark); /* Updated */
 }
+
+/* Media query for mobile dropdown behavior */
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: row; /* Keep logo and hamburger on one row */
+        justify-content: space-between; /* Space them out */
+        padding: 15px 20px;
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger icon on mobile */
+    }
+
+    .main-nav {
+        /* Hide by default and position for dropdown */
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Below header */
+        left: 0;
+        width: 100%;
+        background-color: var(--design-background-dark); /* Dropdown background */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        overflow: hidden; /* Hide content that overflows during transition */
+        max-height: 0; /* Start hidden for transition */
+        transition: max-height 0.4s ease-out; /* Smooth transition */
+        z-index: 999; /* Below header but above main content */
+    }
+
+    .main-nav.show-menu {
+        max-height: 300px; /* Adjust based on content to show all links */
+        /* You might need to set a specific height if content changes, or use auto */
+    }
+
+    .main-nav .nav-link {
+        margin: 0; /* Remove horizontal margin */
+        padding: 15px 20px; /* Larger padding for touch targets */
+        border-bottom: 1px solid var(--design-border-color); /* Separator lines */
+        width: 100%;
+        text-align: left;
+    }
+
+    .main-nav .nav-link:last-child {
+        border-bottom: none; /* No border on the last item */
+    }
+}
+
 
 /* Main Content Wrapper */
 .main-content {
@@ -977,13 +1055,13 @@ textarea:focus {
 
 @media (max-width: 768px) {
     .site-header {
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px 20px;
-        text-align: center;
+        /* Already defined for row and justify-content: space-between */
     }
-    .site-header nav a {
-        margin: 0 10px;
+    .site-header nav { /* This targets the old nav element, need to update to .main-nav */
+        /* Will be overridden by .main-nav styles */
+    }
+    .site-header nav a { /* Will be overridden by .main-nav .nav-link styles */
+        /* Will be overridden by .main-nav .nav-link styles */
     }
     .section-container {
         padding: 20px;
