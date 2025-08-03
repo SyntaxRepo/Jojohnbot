@@ -118,8 +118,7 @@ body {
     }
 
     .main-nav {
-        /* Hide by default and position for dropdown */
-        display: none; /* Hidden by default */
+        display: flex; /* Always flex on mobile, but make it invisible via max-height */
         flex-direction: column;
         position: absolute;
         top: 60px; /* Below header */
