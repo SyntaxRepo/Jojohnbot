@@ -486,7 +486,7 @@ body {
     flex-direction: column;
     gap: 15px;
     width: 100%;
-    margin-bottom: 20px; /* Space for action buttons, *this can be removed if the action-buttons-container is also removed* */
+    margin-bottom: 20px;
 }
 
 .message {
@@ -614,48 +614,6 @@ body {
     }
 }
 
-/* Removed the .action-buttons-container and .action-button styles as they are no longer needed */
-/*
-.action-buttons-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 20px;
-    border-top: 1px solid var(--design-border-color);
-    background-color: var(--design-surface-dark);
-    border-radius: 0 0 15px 15px;
-}
-
-.action-button {
-    background-color: var(--design-button-bg);
-    color: var(--design-text-light);
-    border: 1px solid var(--design-border-color);
-    border-radius: 12px;
-    padding: 15px 20px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.action-button:hover {
-    background-color: var(--design-surface-dark);
-    border-color: var(--design-accent-yellow);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.action-button i {
-    color: var(--design-accent-yellow);
-    font-size: 1.1rem;
-}
-*/
-
-
 /* New minimalist design for Create AI page */
 #create-ai-section {
     padding: 0;
@@ -768,6 +726,176 @@ textarea:focus {
     margin-top: 15px;
 }
 
+/* NEW: Free API Section Styles */
+#free-api-section {
+    padding: 0;
+    height: 90vh; /* Adjust height as needed */
+    max-width: 1000px;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    justify-content: center;
+}
+
+.free-api-wrapper {
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--design-surface-dark);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.free-api-header {
+    background: var(--design-background-dark);
+    width: 100%;
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--design-border-color);
+}
+
+.free-api-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    color: var(--design-text-light);
+}
+
+.free-api-header p {
+    font-size: 1rem;
+    color: var(--design-text-grey);
+}
+
+.free-api-content-wrapper {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to top */
+    align-items: center;
+    gap: 30px;
+    text-align: left;
+}
+
+.api-key-display {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--design-button-bg);
+    border: 1px solid var(--design-border-color);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.api-key-display h2 {
+    font-size: 1.3rem;
+    color: var(--design-accent-yellow);
+    margin-bottom: 15px;
+}
+
+.key-box {
+    background-color: #0d1a3b; /* Darker blue for key box */
+    border: 1px dashed var(--design-accent-yellow); /* Dashed border for key */
+    border-radius: 8px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 15px;
+    overflow-x: auto; /* Allow horizontal scroll for long keys */
+}
+
+.key-box code {
+    flex-grow: 1;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.95rem;
+    color: #e0e0e0; /* Light text for the key */
+    word-break: break-all; /* Break long words */
+}
+
+.copy-button {
+    background-color: var(--design-accent-yellow);
+    color: var(--design-background-dark);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s, transform 0.2s;
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.copy-button:hover {
+    background-color: #e6c200;
+    transform: scale(1.05);
+}
+
+.api-key-display .note {
+    font-size: 0.9rem;
+    color: var(--design-text-grey);
+    margin-top: 10px;
+}
+
+.how-to-get-key {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--design-button-bg);
+    border: 1px solid var(--design-border-color);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.how-to-get-key h2 {
+    font-size: 1.3rem;
+    color: var(--design-accent-yellow);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.how-to-get-key ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.how-to-get-key li {
+    font-size: 1rem;
+    color: var(--design-text-light);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.how-to-get-key li a {
+    color: var(--design-accent-yellow);
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+}
+
+.how-to-get-key li a:hover {
+    text-decoration: underline;
+}
+
+.how-to-get-key .note {
+    font-size: 0.9rem;
+    color: var(--design-text-grey);
+    text-align: center;
+}
+
+
 /* Contact page styles */
 #contact-section {
     padding: 60px;
@@ -860,10 +988,10 @@ textarea:focus {
     .section-container {
         padding: 20px;
     }
-    #chat-container { /* Specificity for chat container */
+    #chat-container, #free-api-section { /* Specificity for chat container and new API section */
         height: auto;
     }
-    .chat-layout {
+    .chat-layout, .free-api-wrapper {
         flex-direction: column;
         height: auto; /* Allow height to adjust */
     }
@@ -909,17 +1037,6 @@ textarea:focus {
     .message {
         max-width: 90%;
     }
-    /* Removed .action-buttons-container and .action-button media queries */
-    /*
-    .action-buttons-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .action-button {
-        width: 100%;
-        justify-content: center;
-    }
-    */
     .contact-content-wrapper {
         flex-direction: column;
         gap: 40px;
@@ -940,6 +1057,23 @@ textarea:focus {
     }
     .contact-form .btn {
         align-self: center;
+    }
+
+    /* Free API Page adjustments for mobile */
+    .free-api-content-wrapper {
+        padding: 20px;
+    }
+    .api-key-display, .how-to-get-key {
+        padding: 15px;
+    }
+    .api-key-display h2, .how-to-get-key h2 {
+        font-size: 1.1rem;
+    }
+    .how-to-get-key ol {
+        padding-left: 15px;
+    }
+    .how-to-get-key li {
+        font-size: 0.95rem;
     }
 }
 
