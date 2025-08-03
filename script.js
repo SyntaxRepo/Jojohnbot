@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Load API key from localStorage
 const savedApiKey = localStorage.getItem('cohere-api-key');
 if (savedApiKey) {
-    apiKeyInput.value = savedApiKey;
+    apiKeyInput.value = 'L2GAgkHnLw6ocBotWLpW29lTD4Ky3bio6Nw8UlRF';
 }
 
 // Load AI Character from localStorage
