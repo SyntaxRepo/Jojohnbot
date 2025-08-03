@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.45, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
     <title>Jojohn Chat Bot</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,7 +15,7 @@
             <a href="#" class="nav-link" data-section="homepage">Home</a>
             <a href="#" class="nav-link" data-section="chat-container">Chat</a>
             <a href="#" class="nav-link" data-section="create-ai-section">Create AI</a>
-            <a href="#" class="nav-link" data-section="contact-section">Contact</a>
+            <a href="#" class="nav-link" data-section="free-api-section">Free API</a> <a href="#" class="nav-link" data-section="contact-section">Contact</a>
         </nav>
     </header>
 
@@ -96,6 +96,36 @@
             </div>
         </div>
 
+        <div class="section-container" id="free-api-section">
+            <div class="free-api-wrapper">
+                <header class="free-api-header">
+                    <h1><i class="fas fa-key"></i> Get Your Free API Key</h1>
+                    <p>Unlock the full potential of Jojohn Chat Bot with an API key.</p>
+                </header>
+                <div class="free-api-content-wrapper">
+                    <div class="api-key-display">
+                        <h2>Your Free API Key:</h2>
+                        <div class="key-box">
+                            <code id="display-api-key">L2GAgkHnLw6ocBotWLpW29lTD4Ky3bio6Nw8UlRF</code>
+                            <button class="copy-button" onclick="copyApiKey()"><i class="far fa-copy"></i> Copy</button>
+                        </div>
+                        <p class="note">You can use this key directly in the Chat section.</p>
+                    </div>
+
+                    <div class="how-to-get-key">
+                        <h2>How to Get Your Own Cohere API Key:</h2>
+                        <ol>
+                            <li>Visit the official Cohere website: <a href="https://cohere.com/api" target="_blank" rel="noopener noreferrer">cohere.com/api</a></li>
+                            <li>Sign up for a free account or log in if you already have one.</li>
+                            <li>Navigate to the "API Keys" or "Dashboard" section.</li>
+                            <li>Generate a new API key. It typically starts with `cohere_`.</li>
+                            <li>Copy the generated key and paste it into the API key field on the Chat page.</li>
+                        </ol>
+                        <p class="note">A personal API key ensures higher usage limits and more control over your AI interactions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="section-container" id="contact-section">
             <div class="contact-header">
                 <h1><i class="fas fa-envelope"></i> Contact Us</h1>
@@ -136,5 +166,17 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        function copyApiKey() {
+            const apiKeyElement = document.getElementById('display-api-key');
+            const apiKey = apiKeyElement.textContent;
+            navigator.clipboard.writeText(apiKey).then(() => {
+                alert('API Key copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy API key: ', err);
+                alert('Failed to copy API key. Please copy it manually.');
+            });
+        }
+    </script>
 </body>
 </html>
